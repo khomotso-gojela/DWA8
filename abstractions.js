@@ -1,4 +1,16 @@
 import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
+import { page, matches } from './scripts.js';
+
+/**
+ * updates the showmore button inner Text
+ * @returns {string}
+ */
+export function showmoreHtml() {
+    return `
+    <span>Show more</span>
+    <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
+`
+}
 
 /**
  * fetch a html element

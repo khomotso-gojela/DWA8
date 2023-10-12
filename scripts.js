@@ -1,5 +1,5 @@
 import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
-import { getElement, setNightTheme, setDayTheme, previewHTML, formOptions, openClose, filterBooks } from './abstractions.js'
+import { getElement, setNightTheme, setDayTheme, previewHTML, formOptions, openClose, filterBooks, showmoreHtml } from './abstractions.js'
 
 const html = {
     showmore: {
@@ -38,19 +38,19 @@ const html = {
     }
 }
 
-/**
- * updates the showmore button inner Text
- * @returns {string}
- */
-function showmoreHtml() {
-    return `
-    <span>Show more</span>
-    <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
-`
-}
+// /**
+//  * updates the showmore button inner Text
+//  * @returns {string}
+//  */
+// function showmoreHtml() {
+//     return `
+//     <span>Show more</span>
+//     <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
+// `
+// }
 
-let page = 1; //number of pages displayed
-let matches = books //all books in our data file
+export let page = 1; //number of pages displayed
+export let matches = books //all books in our data file
 
 const starting = document.createDocumentFragment()
 
